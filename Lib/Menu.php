@@ -2,8 +2,8 @@
 
 namespace AcMarche\MarcheTail\Lib;
 
+use AcMarche\MarcheTail\Inc\Theme;
 use AcMarche\MarcheTail\Lib\Cache;
-use AcMarche\Theme\Inc\Theme;
 use Symfony\Contracts\Cache\CacheInterface;
 
 class Menu
