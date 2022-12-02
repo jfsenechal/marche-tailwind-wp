@@ -1,8 +1,9 @@
-document.addEventListener('alpine:init', () => {
-    Alpine.data('menuMobile', () => ({
+document.addEventListener( 'alpine:init', () => {
+    Alpine.data( 'menuMobile', () => ( {
             menuMobileIsOpen: false,
             searchMobileIsOpen: false,
-            isLoading: false,
-        })
-    )
-})
+            sousMenuOpen: 0,
+            isLoading: false
+        } )
+    );
+} );

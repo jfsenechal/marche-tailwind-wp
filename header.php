@@ -19,7 +19,7 @@ use AcMarche\MarcheTail\Lib\Twig;
     <?php
 wp_body_open();
 $menu = new Menu();
-$items = $menu->getAllItems();
+$items = $menu->getAllItems2();
 
 Twig::rendPage(
     '@MarcheBe/header/_header.html.twig',

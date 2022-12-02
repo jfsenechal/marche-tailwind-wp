@@ -52,7 +52,7 @@ if ($heure > 16 || $heure <= 7) {
 }
 
 $menu  = new Menu();
-$items = $menu->getAllItems();
+$items = $menu->getAllItems2();
 Twig::rendPage(
     '@MarcheBe/homepage.html.twig',
     [
