@@ -25,21 +25,21 @@ document.addEventListener('alpine:init', () => {
                 if (e !== null) {
                     this.filtreSelected = e.target.dataset.filtre
                 }
-                const url = `https://visitmarche.be/${this.language}/wp-json/pivot/offres/${this.currentCategory}/${this.filtreSelected}`;
+                const url = `https://www.marche.be/wp-json/pivot/offres/${this.currentCategory}/${this.filtreSelected}`
                 console.log(url)
                 this.offres = await fetch(url)
                     .then(function (response) {
                         // The API call was successful!
-                        return response.json();
+                        return response.json()
                     })
                     .then(function (data) {
                         // This is the JSON from our response
-                        return data;
+                        return data
                     })
                     .catch(function (err) {
                         // There was an error
                         this.isLoading = false
-                        console.warn("Something went wrong.", err);
+                        console.warn("Something went wrong.", err)
                         return err
                     })
 

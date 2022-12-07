@@ -3,7 +3,13 @@ document.addEventListener( 'alpine:init', () => {
             menuMobileIsOpen: false,
             searchMobileIsOpen: false,
             sousMenuOpen: 0,
-            isLoading: false
+            isLoading: false,
+            init() {
+                this.sousMenuOpen = 0
+                this.menuMobileIsOpen = false
+                this.searchMobileIsOpen = false
+                this.sousMenuOpen = 0
+            }
         } )
-    );
-} );
+    )
+} )
