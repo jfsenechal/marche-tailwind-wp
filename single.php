@@ -6,6 +6,7 @@ global $post;
 
 use AcMarche\MarcheTail\Inc\Theme;
 use AcMarche\MarcheTail\Lib\Cache;
+use AcMarche\MarcheTail\Lib\Menu;
 use AcMarche\MarcheTail\Lib\Twig;
 use AcMarche\MarcheTail\Lib\WpRepository;
 
@@ -33,8 +34,8 @@ echo $cache->get(
 
         $tags      = WpRepository::getTags($post->ID);
         $relations = WpRepository::getRelations($post->ID);
-
-        $catSlug = get_query_var('category_name');
+        $relations = array_splice($relations, 0, 3);
+        $catSlug   = get_query_var('category_name');
 
         if (preg_match("#/#", $catSlug)) {
             $vars    = explode("/", $catSlug);
@@ -70,7 +71,9 @@ echo $cache->get(
         $content = apply_filters('the_content', $content);
         $content = str_replace(']]>', ']]&gt;', $content);
 
-        $twig = Twig::LoadTwig();
+        $twig  = Twig::LoadTwig();
+        $menu  = new Menu();
+        $items = $menu->getAllItems2();
 
         return $twig->render(
             '@MarcheBe/article.html.twig',
@@ -87,6 +90,7 @@ echo $cache->get(
                 'nameBack'    => $nameBack,
                 'content'     => $content,
                 'readspeaker' => true,
+                'items'       => $items,
             ]
         );
     }
