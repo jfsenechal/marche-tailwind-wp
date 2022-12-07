@@ -5,7 +5,6 @@ namespace AcMarche\MarcheTail\Lib;
 use AcMarche\Bottin\Bottin;
 use AcMarche\Bottin\Repository\BottinRepository;
 use AcMarche\Bottin\RouterBottin;
-use AcMarche\Common\SortUtil;
 use AcMarche\MarcheTail\Inc\RouterMarche;
 use AcMarche\MarcheTail\Inc\Theme;
 use AcMarche\Pivot\DependencyInjection\PivotContainer;
