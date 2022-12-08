@@ -5,6 +5,7 @@ namespace AcMarche\MarcheTail;
 use AcMarche\MarcheTail\Inc\AdminBar;
 use AcMarche\MarcheTail\Inc\AdminPage;
 use AcMarche\MarcheTail\Inc\AssetsLoad;
+use AcMarche\MarcheTail\Inc\Filter;
 use AcMarche\MarcheTail\Inc\OpenGraph;
 use AcMarche\MarcheTail\Inc\RouterMarche;
 use AcMarche\MarcheTail\Inc\SecurityConfig;
@@ -62,3 +63,7 @@ new AdminPage();
  * Add buttons to admin bar
  */
 new AdminBar();
+/**
+ * Add css to list
+ */
+New Filter();

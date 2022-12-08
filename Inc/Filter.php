@@ -38,20 +38,4 @@ class Filter
 
         return $content;
     }
-
-    /**
-     * Remove word "Category"
-     *
-     * @param $title
-     *
-     * @return string|void
-     */
-    function removeCategoryPrefixTitle($title)
-    {
-        if (is_category()) {
-            $title = single_cat_title('', false);
-        }
-
-        return $title;
-    }
 }
