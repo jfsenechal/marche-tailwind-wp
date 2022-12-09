@@ -8,7 +8,7 @@ namespace AcMarche\MarcheTail\Inc;
  * Class Api
  * @package AcMarche\MarcheTail\Inc
  */
-class Api
+class ApiRoutes
 {
     public function __construct()
     {

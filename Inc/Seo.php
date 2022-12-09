@@ -6,7 +6,6 @@ namespace AcMarche\MarcheTail\Inc;
 use AcMarche\Bottin\Repository\BottinRepository;
 use AcMarche\Bottin\RouterBottin;
 use AcMarche\MarcheTail\Lib\Mailer;
-use AcMarche\MarcheTail\Lib\Router;
 use AcMarche\Pivot\DependencyInjection\PivotContainer;
 use AcMarche\MarcheTail\Lib\WpRepository;
 
@@ -115,10 +114,10 @@ class Seo
         self::$metas['description'] = get_bloginfo('description', 'display');
         self::$metas['keywords']    = 'Commune, Ville, Marche, Marche-en-Famenne, Famenne, Administration communal';
 
-        $pivotRepository = PivotContainer::getPivotRepository();
+        $wpRepository = new WpRepository();
         try {
-            $event                      = $pivotRepository->getEvent($codeCgt);
-            self::$metas['title']       = $event->nom.' | Agenda des manifestations ';
+            $event                      = $wpRepository->getEvents($codeCgt);
+            self::$metas['title']       = $event->name.' | Agenda des manifestations ';
             self::$metas['description'] = join(
                 ',',
                 array_map(
@@ -132,7 +131,7 @@ class Seo
                 function ($category) {
                     return $category->labelByLanguage('fr');
                 },
-                $event->categories
+                $event->tags
             );
             self::$metas['keywords']    = join(",", $keywords);
         } catch (\Exception $e) {
@@ -151,7 +150,7 @@ class Seo
     private static function metaCategory(int $cat_id)
     {
         $category = get_category($cat_id);
-        $url      = Router::getCurrentUrl();
+        $url      = RouterMarche::getCurrentUrl();
         if ( ! $category) {
             Mailer::sendError('seo cat', 'cat not found '.$url);
             self::$metas['title'] = self::baseTitle("");
